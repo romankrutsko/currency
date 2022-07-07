@@ -1,14 +1,22 @@
 package com.example.currency.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class User {
     private Integer id;
     private String name;
-    private Account account;
+    private String email;
 
-    public User(Integer id, String name, Account account) {
+    public User() {
+
+    }
+
+    public User(@JsonProperty("userId") Integer id,
+                @JsonProperty("userName") String name,
+                @JsonProperty("email") String email) {
         this.id = id;
         this.name = name;
-        this.account = account;
+        this.email = email;
     }
 
     public Integer getId() {
@@ -27,11 +35,11 @@ public class User {
         this.name = name;
     }
 
-    public Account getAccount() {
-        return account;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
